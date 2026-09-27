@@ -55,7 +55,7 @@ public class GraphicsModule extends BaseModule {
         lines.get(3).value(client.options.biomeBlendRadius().get());
 
         // Shader
-        final Identifier shaderEffect = client.gameRenderer.currentPostEffect();
+        final Identifier shaderEffect = client.gameRenderer.spectatedEntityPostEffect();
         if (shaderEffect != null) {
             lines.get(4).value(String.valueOf(shaderEffect));
         } else {
