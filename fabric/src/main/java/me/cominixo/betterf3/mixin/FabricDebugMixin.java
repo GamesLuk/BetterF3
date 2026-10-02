@@ -34,16 +34,18 @@ public abstract class FabricDebugMixin {
     /**
      * Renders the text on either the left or right side of the screen, depending on the {@code bl} parameter.
      *
-     * @param graphics    Draw Context
-     * @param lines       List of strings
-     * @param alignLeft   If {@code true}, renders on the left side; if {@code false}, renders on the right side.
-     * @param ci          Callback info
+     * @param graphics          Draw Context
+     * @param lines             List of strings
+     * @param alignLeft         If {@code true}, renders on the left side; if {@code false}, renders on the right side.
+     * @param scaledScreenWidth The scaled width of the screen.
+     * @param ci                Callback info
      */
     @Inject(method = "extractLines", at = @At("HEAD"), cancellable = true)
     public void drawText(
             final GuiGraphicsExtractor graphics,
             final List<String> lines,
             final boolean alignLeft,
+            final int scaledScreenWidth,
             final CallbackInfo ci) {
 
         if (GeneralOptions.disableMod || !this.minecraft.debugEntries.isOverlayVisible()) {
